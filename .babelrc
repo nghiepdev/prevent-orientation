@@ -1,0 +1,9 @@
+{
+  "presets": ["env"],
+  "plugins": ["transform-object-assign", "transform-class-properties"],
+  "env": {
+    "production": {
+      "presets": ["minify"]
+    }
+  }
+}
