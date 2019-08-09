@@ -7,8 +7,7 @@
 /coverage
 
 # production
-/build
-/lib
+/bundle.js
 
 # misc
 .DS_Store
@@ -21,5 +20,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-index.min.js
-index.min.js.map
+# other
+.vscode
+.idea

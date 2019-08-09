@@ -1,10 +1,10 @@
 class PreventOrientation {
   constructor({
-    text = "Sorry, this device orientation is not supported'",
+    text = 'Sorry, this device orientation is not supported',
     color = 'rgb(90, 90, 90)',
     background = 'linear-gradient(to right, rgb(255, 175, 189), rgb(255, 195, 160))',
     fontSize = '1.2rem',
-  }) {
+  } = {}) {
     this.className = 'wrapper-prevent-orientation';
     this.text = text;
     this.color = color;
@@ -50,7 +50,7 @@ class PreventOrientation {
           document.querySelectorAll('.' + this.className),
           node => {
             node.parentNode.removeChild(node);
-          }
+          },
         );
       } catch (e) {}
     } else {
@@ -84,10 +84,4 @@ class PreventOrientation {
   };
 }
 
-if (typeof exports === 'object' && typeof module === 'object') {
-  module.exports = PreventOrientation;
-} else if (typeof define === 'function' && define.amd) {
-  define(() => PreventOrientation);
-} else if (typeof window !== 'undefined') {
-  window.PreventOrientation = PreventOrientation;
-}
+export default PreventOrientation;

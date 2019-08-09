@@ -3,7 +3,7 @@
 Force orientation mode on mobile device
 
 [![NPM version](https://img.shields.io/npm/v/prevent-orientation.svg)](https://www.npmjs.com/package/prevent-orientation)
-[![NPM monthly download](https://img.shields.io/npm/dm/prevent-orientation.svg)](https://www.npmjs.com/package/prevent-orientation)
+[![NPM yearly download](https://img.shields.io/npm/dy/prevent-orientation.svg)](https://www.npmjs.com/package/prevent-orientation)
 
 ![screenshots](screenshots.png)
 
@@ -24,10 +24,10 @@ or
 ```js
 import PreventOrientation from 'prevent-orientation';
 
-// force to portrait orienation
+// force to portrait orientation
 new PreventOrientation().forcePortrait();
 
-// force to landscape orienation
+// force to landscape orientation
 new PreventOrientation().forceLandscape();
 ```
 
@@ -45,4 +45,4 @@ new PreventOrientation({
 
 ## License
 
-MIT © [Nghiệp](http://nghiepit.pro)
+MIT © [Nghiep](http://nghiepit.dev)

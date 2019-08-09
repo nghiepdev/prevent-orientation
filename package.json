@@ -2,22 +2,38 @@
   "name": "prevent-orientation",
   "version": "0.1.0",
   "description": "Force orientation mode on mobile device",
-  "main": "index.min.js",
+  "keywords": [
+    "orientation",
+    "landscape",
+    "portrait"
+  ],
+  "files": [
+    "LICENCE",
+    "README.md"
+  ],
+  "main": "bundle.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production babel index.js -o index.min.js -s",
-    "prepublish": "npm run build"
+    "build": "rollup -c --environment BUILD:production",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-assign": "^6.22.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-minify": "^0.3.0",
-    "cross-env": "^5.1.3"
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-object-assign": "^7.2.0",
+    "@babel/preset-env": "^7.5.5",
+    "rollup": "^1.12.3",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-node-resolve": "^5.0.0"
   },
-  "repository": "https://github.com/nghiepit/prevent-orientation",
-  "author": "Nghiệp <me@nghiepit.pro>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nghiepit/prevent-orientation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nghiepit/prevent-orientation/issues"
+  },
   "homepage": "https://github.com/nghiepit/prevent-orientation",
-  "keywords": ["orientation", "landscape", "portrait"],
+  "author": "Nghiep <me@nghiepit.dev>",
   "license": "MIT"
 }

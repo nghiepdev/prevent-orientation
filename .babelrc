@@ -1,9 +1,7 @@
 {
-  "presets": ["env"],
-  "plugins": ["transform-object-assign", "transform-class-properties"],
-  "env": {
-    "production": {
-      "presets": ["minify"]
-    }
-  }
+  "presets": [["@babel/preset-env"]],
+  "plugins": [
+    "@babel/plugin-transform-object-assign",
+    "@babel/plugin-proposal-class-properties"
+  ]
 }
