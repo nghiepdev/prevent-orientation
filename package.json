@@ -1,6 +1,6 @@
 {
   "name": "prevent-orientation",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Force orientation mode on mobile device",
   "keywords": [
     "orientation",
