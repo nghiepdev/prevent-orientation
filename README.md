@@ -13,6 +13,12 @@ Prevent orientation mode on mobile device
 $ yarn add prevent-orientation
 ```
 
+or
+
+```html
+<script src="//unpkg.com/prevent-orientation"></script>
+```
+
 ## Usage
 
 ```ts

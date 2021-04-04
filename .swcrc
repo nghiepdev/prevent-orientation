@@ -1,0 +1,15 @@
+{
+  "module": {
+    "type": "umd",
+    "globals": {}
+  },
+  "jsc": {
+    "target": "es5",
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": false,
+      "dynamicImport": false
+    }
+  }
+}

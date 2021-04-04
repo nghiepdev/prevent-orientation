@@ -86,3 +86,13 @@ export class PreventOrientation {
 
   preventLandscape = () => this.preventOrientationToAngle(90);
 }
+
+if (typeof window !== 'undefined') {
+  window.PreventOrientation = PreventOrientation;
+}
+
+declare global {
+  interface Window {
+    PreventOrientation: typeof PreventOrientation;
+  }
+}
