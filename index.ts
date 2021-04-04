@@ -1,18 +1,24 @@
-class PreventOrientation {
+export class PreventOrientation {
+  private text: string;
+  private color: string;
+  private background: string;
+  private fontSize: string;
+  private angle: string | number = 0;
+  private readonly className: string = 'wrapper-prevent-orientation';
+
   constructor({
     text = 'Sorry, this device orientation is not supported',
     color = 'rgb(90, 90, 90)',
     background = 'linear-gradient(to right, rgb(255, 175, 189), rgb(255, 195, 160))',
     fontSize = '1.2rem',
   } = {}) {
-    this.className = 'wrapper-prevent-orientation';
     this.text = text;
     this.color = color;
     this.background = background;
     this.fontSize = fontSize;
   }
 
-  get angleCurrent() {
+  protected get currentAngle() {
     try {
       return screen.orientation.angle;
     } catch (e) {
@@ -20,40 +26,17 @@ class PreventOrientation {
     }
   }
 
-  get supportsOrientationChange() {
+  protected get supportsOrientationChange() {
     return 'onorientationchange' in window ? 'orientationchange' : 'resize';
   }
 
-  forceOrientationToAngle = angle => {
-    this.angle = angle;
-
-    this.handlePrevent();
-
-    window.addEventListener(this.supportsOrientationChange, this.handlePrevent);
-  };
-
-  forcePortrait = () => this.forceOrientationToAngle(0);
-
-  forceLandscape = () => this.forceOrientationToAngle(90);
-
-  handlePrevent = () => {
-    const angleCurrent = this.angleCurrent;
-
+  protected handlePrevent = () => {
     const container = document.createElement('div');
     const text = document.createElement('p');
 
     container.className = this.className;
 
-    if (this.angle === angleCurrent) {
-      try {
-        Array.prototype.forEach.call(
-          document.querySelectorAll('.' + this.className),
-          node => {
-            node.parentNode.removeChild(node);
-          },
-        );
-      } catch (e) {}
-    } else {
+    if (this.angle === this.currentAngle) {
       Object.assign(container.style, {
         position: 'fixed',
         width: '100%',
@@ -80,8 +63,26 @@ class PreventOrientation {
       container.appendChild(text);
 
       document.body.appendChild(container);
+    } else {
+      try {
+        Array.prototype.forEach.call(
+          document.querySelectorAll('.' + this.className),
+          node => {
+            node.parentNode.removeChild(node);
+          }
+        );
+      } catch (e) {}
     }
   };
-}
 
-export default PreventOrientation;
+  preventOrientationToAngle = (angle: string | number) => {
+    this.angle = angle;
+    this.handlePrevent();
+
+    window.addEventListener(this.supportsOrientationChange, this.handlePrevent);
+  };
+
+  preventPortrait = () => this.preventOrientationToAngle(0);
+
+  preventLandscape = () => this.preventOrientationToAngle(90);
+}
