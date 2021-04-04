@@ -1,6 +1,6 @@
 {
   "name": "prevent-orientation",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Prevent orientation mode on mobile device",
   "keywords": [
     "orientation",
